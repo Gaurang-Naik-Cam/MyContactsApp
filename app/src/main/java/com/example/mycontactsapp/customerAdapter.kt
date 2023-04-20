@@ -31,7 +31,7 @@ class customerAdapter(private val context : Activity, private val customerList :
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence?): FilterResults {
                 val queryString = charSequence?.toString()?.lowercase()
-                val filterResults = Filter.FilterResults()
+                val filterResults = FilterResults()
                  if (queryString==null || queryString.isEmpty()) {
                      filterResults.values = cList
                      filterResults.count = cList.count()

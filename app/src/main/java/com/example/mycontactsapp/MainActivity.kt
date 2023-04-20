@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.SearchView
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -55,9 +56,9 @@ class MainActivity : AppCompatActivity() {
         val listView: ListView = findViewById(R.id.ListViewCustomers)
         binding.ListViewCustomers.isClickable = true
 
-        val resultContract = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: androidx.activity.result.ActivityResult ->
+        val resultContract = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
 
-            if(result.resultCode == Activity.RESULT_OK){
+            if(result.resultCode == RESULT_OK){
                 val index = result.data?.getIntExtra("index",0)
                 val updatedCustomer = result.data?.getSerializableExtra("updatedCustomer") as Customer
                 itemlist.removeAt(index!!)

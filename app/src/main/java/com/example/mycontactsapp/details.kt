@@ -31,25 +31,30 @@ class details : AppCompatActivity() {
         binding.editTextCompany.setText(customer.CompanyName)
 
         btnUpdate.setOnClickListener {
+            try {
+                if (editCustomerName.text.isNotEmpty() && editCustomerPhoneNumber.text.isNotEmpty()) {
+                    var newCustomer: Customer = Customer()
+                    newCustomer.Name = editCustomerName.text.toString()
+                    newCustomer.PhoneNumber = editCustomerPhoneNumber.text.toString()
+                    newCustomer.Email = editCustomerEmail.text.toString()
+                    newCustomer.CompanyName = editCustomerCompany.text.toString()
 
-            if (editCustomerName.text.isNotEmpty() && editCustomerPhoneNumber.text.isNotEmpty() ) {
-                var newCustomer: Customer = Customer()
-                newCustomer.Name = editCustomerName.text.toString()
-                newCustomer.PhoneNumber = editCustomerPhoneNumber.text.toString()
-                newCustomer.Email = editCustomerEmail.text.toString()
-                newCustomer.CompanyName = editCustomerCompany.text.toString()
+                    var resultIntent = Intent()
+                    resultIntent.putExtra("updatedCustomer", newCustomer)
+                    resultIntent.putExtra("index", selectedIndex)
+                    setResult(RESULT_OK,resultIntent)
+                    finish()
 
-                var resultIntent = Intent()
-                resultIntent.putExtra("updatedCustomer",newCustomer)
-                resultIntent.putExtra("index",selectedIndex)
-                setResult(RESULT_OK)
-                finish()
-            }
-            else
-            {
-                //send toast message
+                } else {
+                    //send toast message
+                }
+            } catch(e:Exception){
+
+                print(e)
+
             }
         }
+
 
     }
 
