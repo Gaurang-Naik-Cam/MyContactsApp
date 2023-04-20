@@ -7,23 +7,24 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txtViewAppName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Contacts App"
-        android:textColor="@color/black"
-        android:textSize="26dp"
-        android:fontFamily="sans-serif-black"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtViewAppName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="Contacts App"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="26dp"-->
+<!--        android:fontFamily="sans-serif-black"/>-->
 
 
     <EditText
         android:id="@+id/txtCustomerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewAppName"
+        android:layout_below="@+id/searchView"
         android:text=""
         android:hint="Name"
         android:textColor="@color/black"
@@ -36,6 +37,7 @@
         android:layout_below="@+id/txtCustomerName"
         android:text=""
         android:hint="Phone number"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/black">
     </EditText>
@@ -55,9 +57,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="My Contact List"
+        android:text="My Contacts"
         android:textColor="@color/black"
         android:textSize="20dp" />
+    
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:queryHint="Search contact by name"
+        android:background="@color/grey"
+        android:queryBackground="@android:color/transparent"/>
 
     <ListView
         android:id="@+id/ListViewCustomers"
