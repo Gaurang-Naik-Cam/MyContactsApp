@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.mycontactsapp.databinding.ActivityDetailsBinding
 
 class details : AppCompatActivity() {
@@ -46,17 +48,11 @@ class details : AppCompatActivity() {
                     finish()
 
                 } else {
-                    //send toast message
+                    Toast.makeText(applicationContext,"Contact name and phone number cannot be empty",Toast.LENGTH_LONG).show()
                 }
             } catch(e:Exception){
-
                 print(e)
-
             }
         }
-
-
     }
-
-
 }

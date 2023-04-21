@@ -1,7 +1,5 @@
 package com.example.mycontactsapp
 
-import android.os.Parcel
-import android.os.Parcelable
 
 class Customer() : java.io.Serializable  {
         lateinit var Name : String
